@@ -34,6 +34,7 @@ unsigned long previousTime = 0;
 
 const long timeoutTime = 2000;
 
+// İlk kurulum işlemini başlatıyoruz
 void setup() {
   Serial.begin(115200);
   
@@ -69,6 +70,7 @@ void setup() {
   server.begin();
 }
 
+// Loop döngüsü başlangıcı
 void loop(){
   
   Wire.begin(2, 0);
@@ -100,6 +102,7 @@ void loop(){
             client.println("Connection: close");
             client.println();
             
+            // Bu kısım birazcık hazır :)
           
             if (header.indexOf("GET /5/on") >= 0) {
               Serial.println("GPIO 5 on");
